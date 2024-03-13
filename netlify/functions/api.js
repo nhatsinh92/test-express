@@ -1,4 +1,15 @@
 const serverless = require("serverless-http");
-const app = require('../../app');
+const express = require('express');
+const router = express.Router();
+const users = require('../../json/users.json');
 
-export const handler = serverless(app);
+const api = express();
+
+/* GET users listing. */
+router.get('/users', function(req, res, next) {
+  res.json(users)
+});
+
+api.use("/api/", router);
+
+export const handler = serverless(api);
