@@ -6,7 +6,7 @@ const users = require('../../json/users.json');
 const api = express();
 
 /* GET users listing. */
-router.get('/api/users', function(req, res, next) {
+router.get('/users', function(req, res, next) {
   res.json(users)
 });
 
